@@ -1,10 +1,18 @@
 package M3;
 
-public interface Capteur {
+import java.util.List;
 
-    public void attach(ObserverDeCapteur o);
+public class DiffusionAtomique implements AlgoDiffusion{
 
-    public Integer getValue();
+    private List<Canal> canaux;
 
-    public void tick();
+    private List<CapteurImpl> capteurs;
+
+    public void configure(){
+
+    }
+
+    public void execute(){
+
+    }
 }

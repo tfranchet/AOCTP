@@ -1,10 +1,23 @@
 package M3;
 
-public interface Capteur {
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
 
-    public void attach(ObserverDeCapteur o);
+public class Canal implements ObserverDeCapteurAsync{
 
-    public Integer getValue();
+    private CapteurImpl cimpl;
 
-    public void tick();
+    private Afficheur affiche;
+
+    private ScheduledExecutorService schedule;
+
+    public Future<Integer> update(Capteur c){
+        Future<Integer> f;
+        return f;
+    }
+
+    public Future<Integer> getValue(){
+        Future<Integer> f;
+        return f;
+    }
 }

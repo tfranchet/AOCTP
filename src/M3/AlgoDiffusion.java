@@ -1,10 +1,8 @@
 package M3;
 
-public interface Capteur {
+public interface AlgoDiffusion{
 
-    public void attach(ObserverDeCapteur o);
+    public void configure();
 
-    public Integer getValue();
-
-    public void tick();
+    public void execute();
 }

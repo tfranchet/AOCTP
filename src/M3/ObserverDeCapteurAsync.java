@@ -1,10 +1,10 @@
+
+
 package M3;
 
-public interface Capteur {
+import java.util.concurrent.Future;
 
-    public void attach(ObserverDeCapteur o);
+public interface ObserverDeCapteurAsync {
 
-    public Integer getValue();
-
-    public void tick();
+    public Future update(Capteur c);
 }

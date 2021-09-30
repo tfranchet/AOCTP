@@ -1,10 +1,24 @@
 package M3;
 
-public interface Capteur {
+public class CapteurImpl implements Capteur {
 
-    public void attach(ObserverDeCapteur o);
+    private Integer value;
 
-    public Integer getValue();
+    private AlgoDiffusion strategy;
 
-    public void tick();
+    public void attach(ObserverDeCapteur o){
+        
+    }
+
+    public void attach(ObserverDeCapteur o){
+        
+    }
+
+    public Integer getValue(){
+        return value;
+    }
+
+    public void tick(){
+
+    }
 }
