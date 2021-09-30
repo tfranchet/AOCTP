@@ -11,13 +11,15 @@ public class Canal implements ObserverDeCapteurAsync{
 
     private ScheduledExecutorService schedule;
 
+    private Update update;
+
     public Future<Integer> update(Capteur c){
-        Future<Integer> f;
+        Future<Integer> f = null;
         return f;
     }
 
     public Future<Integer> getValue(){
-        Future<Integer> f;
+        Future<Integer> f = null;
         return f;
     }
 }

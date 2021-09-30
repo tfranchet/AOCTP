@@ -10,7 +10,7 @@ public class Update implements Callable, MethodInvocation {
     }
 
     @Override
-    public void call() throws Exception {
+    public void callMI(ObserveDeCapteur o) {
     }
 
     @Override
@@ -22,4 +22,11 @@ public class Update implements Callable, MethodInvocation {
     public String getParameters() {
         return null;
     }
+
+    @Override
+    public Object call() throws Exception {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }
