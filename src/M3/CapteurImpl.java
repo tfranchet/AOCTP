@@ -6,11 +6,11 @@ public class CapteurImpl implements Capteur {
 
     private AlgoDiffusion strategy;
 
-    public void attach(ObserveDeCapteur o){
+    public void attach(ObserverDeCapteur o){
         
     }
 
-    public void detach(ObserveDeCapteur o){
+    public void detach(ObserverDeCapteur o){
         
     }
 

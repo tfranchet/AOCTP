@@ -10,7 +10,7 @@ public class Update implements Callable, MethodInvocation {
     }
 
     @Override
-    public void callMI(ObserveDeCapteur o) {
+    public void callMI(ObserverDeCapteur o) {
     }
 
     @Override
