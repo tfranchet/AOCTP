@@ -12,6 +12,7 @@ public class Afficheur implements ObserverDeCapteur{
 
 	@Override
 	public void update(Capteur capteur) {
+		canal.update(capteur);
 		this.canal.update(capteur);
 		this.valeur = capteur.getValue();
 	}

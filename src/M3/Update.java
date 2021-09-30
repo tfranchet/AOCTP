@@ -2,7 +2,7 @@ package M3;
 
 import java.util.concurrent.Callable;
 
-public class Update implements Callable, MethodInvocation {
+public class Update implements Callable<Integer>, MethodInvocation {
 
     @Override
     public Boolean gard() {
@@ -24,7 +24,7 @@ public class Update implements Callable, MethodInvocation {
     }
 
     @Override
-    public Object call() throws Exception {
+    public Integer call() throws Exception {
         // TODO Auto-generated method stub
         return null;
     }

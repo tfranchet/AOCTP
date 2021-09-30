@@ -19,6 +19,6 @@ public class CapteurImpl implements Capteur {
     }
 
     public void tick(){
-
+        strategy.execute();
     }
 }

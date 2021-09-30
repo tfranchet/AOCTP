@@ -13,6 +13,11 @@ public class DiffusionAtomique implements AlgoDiffusion{
     }
 
     public void execute(){
-
+        for (Canal canal : canaux) {
+            for (CapteurImpl capteur : capteurs) {
+                canal.update(capteur);
+            }
+        }
+        
     }
 }
