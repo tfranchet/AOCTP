@@ -1,8 +1,8 @@
 package M3;
 
-public class Afficheur implements ObserveDeCapteur{
+public class Afficheur implements ObserverDeCapteur{
 
-	int valeurs;
+	int valeur;
 	
 	public Afficheur() {
 		// TODO Auto-generated constructor stub
@@ -11,7 +11,7 @@ public class Afficheur implements ObserveDeCapteur{
 	@Override
 	public void update(Capteur capteur) {
 		// TODO Auto-generated method stub
-		
+		this.valeur = capteur.getValue();
 	}
 
 }
