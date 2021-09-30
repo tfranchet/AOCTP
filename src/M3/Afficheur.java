@@ -1,3 +1,4 @@
+package M3;
 
 public class Afficheur implements ObserveDeCapteur{
 
