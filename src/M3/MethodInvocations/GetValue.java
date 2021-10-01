@@ -2,23 +2,26 @@ package M3.MethodInvocations;
 
 import java.util.concurrent.Callable;
 
+import M3.clients.Capteur;
 import M3.clients.ObserverDeCapteur;
+import M3.proxy.Canal;
 import M3.services.CapteurAsync;
 import M3.services.ObserverDeCapteurAsync;
 
-public class Affiche implements Callable<Void>, MethodInvocation{
+public class GetValue implements Callable<Void>, MethodInvocation{
 
-	private ObserverDeCapteurAsync observer;
-	private CapteurAsync subject;
+	private Canal subject;
+	private Capteur observer;
 	
-	public Affiche(ObserverDeCapteurAsync observer,CapteurAsync subject) {
+	public GetValue(Capteur observer,Canal subject) {
+		super();
 		this.observer = observer;
 		this.subject = subject;
 	}
 
 	@Override
 	public Void call() throws Exception {
-		this.observer.update(this.subject);
+		this.observer.getValue();
 		return null;
 	}
 	
@@ -29,8 +32,8 @@ public class Affiche implements Callable<Void>, MethodInvocation{
 	}
 
 	@Override
-	public void call(ObserverDeCapteur o) {
-		this.observer.update(this.subject);		
+	public void callMI() {
+		this.observer.getValue();		
 	}
 
 	@Override

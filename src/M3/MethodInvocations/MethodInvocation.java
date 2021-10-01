@@ -10,7 +10,7 @@ public interface MethodInvocation {
 
     public Boolean gard();
 
-    public void call(ObserverDeCapteur o);
+    public void callMI();
 
     public void setParameters();
 

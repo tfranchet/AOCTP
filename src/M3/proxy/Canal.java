@@ -3,30 +3,53 @@ package M3.proxy;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 
+import M3.MethodInvocations.GetValue;
 import M3.MethodInvocations.Update;
 import M3.clients.Afficheur;
 import M3.clients.Capteur;
 import M3.clients.CapteurImpl;
+import M3.scheduler.Scheduler;
 import M3.services.CapteurAsync;
 import M3.services.ObserverDeCapteurAsync;
 
-public class Canal implements ObserverDeCapteurAsync{
+public class Canal implements ObserverDeCapteurAsync, CapteurAsync{
 
-    private CapteurImpl cimpl;
-    private Afficheur affiche;
+    private Capteur cimpl;
 
-    private ScheduledExecutorService schedule;
+    public Afficheur affiche;
+
+    private Scheduler schedule;
 
     private Update update;
 
-    public Future<Integer> update(Capteur c){
-        Future<Integer> f = null;
-        return f;
+    private GetValue getValue;
+
+    public Canal(Capteur cimpl, Afficheur afficheur){
+        this.cimpl = cimpl;
+        this.affiche = afficheur;
     }
 
-    public Integer getValue(){
-    	return cimpl.getValue();
+    public Future update(Capteur c){
+        try {
+            update = new Update(affiche, this);            
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    	return schedule.enqueue(update);
     }
+
+    public Future getValue(){
+        try {
+            getValue = new GetValue(cimpl, this);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            
+        }
+    	return schedule.enqueue(getValue);
+    }
+    
 
 	@Override
 	public Future update(CapteurAsync subject) {
