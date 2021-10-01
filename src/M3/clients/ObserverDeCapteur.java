@@ -1,8 +1,9 @@
 package M3.clients;
 
+import M3.proxy.Canal;
 import M3.services.CapteurAsync;
 
 public interface ObserverDeCapteur {
 	
-	void update(CapteurAsync subject);
+	void update(Canal subject);
 }

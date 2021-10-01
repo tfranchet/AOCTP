@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import M3.proxy.Canal;
 import M3.services.CapteurAsync;
 
 public class Afficheur implements ObserverDeCapteur{
 	
 	List<Integer> valeurs;
 	
-	public Afficheur(Capteur capteur) {
+	public Afficheur(Canal canal) {
 		super();
 		this.valeurs = new ArrayList<Integer>();
 	}
 
 	@Override
-	public void update(CapteurAsync capteur) {
+	public void update(Canal canal) {
 		try {
-			this.valeurs.add((Integer) (capteur.getValue().get()));
+			this.valeurs.add((Integer) (canal.getValue().get()));
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
