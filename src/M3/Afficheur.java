@@ -1,20 +1,18 @@
 package M3;
 
 public class Afficheur implements ObserverDeCapteur{
-
-	int valeur;
-	private Canal canal;
 	
-	public Afficheur(Canal canal) {
+	int valeur;
+	private Capteur capteur;
+	
+	public Afficheur(Capteur capteur) {
 		super();
-		this.canal = canal;
+		this.capteur = capteur;
 	}
 
 	@Override
-	public void update(Capteur capteur) {
-		canal.update(capteur);
-		this.canal.update(capteur);
-		this.valeur = capteur.getValue();
+	public void update() {
+		this.valeur = this.capteur.getValue();
 	}
 
 }
