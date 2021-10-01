@@ -8,5 +8,7 @@ import M3.clients.Capteur;
 
 public interface ObserverDeCapteurAsync {
 
-    public Future update(Capteur c);
+    Integer getValue();
+
+	Future update(CapteurAsync subject);
 }

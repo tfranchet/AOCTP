@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 import M3.clients.ObserverDeCapteur;
 import M3.services.CapteurAsync;
 
-public class Update implements Callable<Integer>, MethodInvocation {
+public class Update implements Callable<Void>, MethodInvocation {
 
 	private ObserverDeCapteur observer;
 	private CapteurAsync subject;
@@ -17,10 +17,9 @@ public class Update implements Callable<Integer>, MethodInvocation {
 	}
 
     @Override
-    public Integer call() throws Exception {
-        // TODO Auto-generated method stub
+    public Void call() throws Exception {
     	this.observer.update(this.subject);
-        return null;
+		return null;
     }
 
 
@@ -32,7 +31,7 @@ public class Update implements Callable<Integer>, MethodInvocation {
 
 
 	@Override
-	public void callMI(ObserverDeCapteur o) {
+	public void call(ObserverDeCapteur o) {
 		// TODO Auto-generated method stub
 		
 	}

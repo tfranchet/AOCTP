@@ -7,12 +7,12 @@ import M3.MethodInvocations.Update;
 import M3.clients.Afficheur;
 import M3.clients.Capteur;
 import M3.clients.CapteurImpl;
+import M3.services.CapteurAsync;
 import M3.services.ObserverDeCapteurAsync;
 
 public class Canal implements ObserverDeCapteurAsync{
 
     private CapteurImpl cimpl;
-
     private Afficheur affiche;
 
     private ScheduledExecutorService schedule;
@@ -24,8 +24,13 @@ public class Canal implements ObserverDeCapteurAsync{
         return f;
     }
 
-    public Future<Integer> getValue(){
-        Future<Integer> f = null;
-        return f;
+    public Integer getValue(){
+    	return cimpl.getValue();
     }
+
+	@Override
+	public Future update(CapteurAsync subject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
