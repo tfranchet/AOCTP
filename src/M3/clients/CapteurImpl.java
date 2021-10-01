@@ -1,4 +1,6 @@
-package M3;
+package M3.clients;
+
+import M3.strategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 

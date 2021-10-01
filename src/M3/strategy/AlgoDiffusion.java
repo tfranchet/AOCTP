@@ -1,4 +1,4 @@
-package M3;
+package M3.strategy;
 
 public interface AlgoDiffusion{
 

@@ -1,4 +1,4 @@
-package M3;
+package M3.clients;
 
 public interface Capteur{
 

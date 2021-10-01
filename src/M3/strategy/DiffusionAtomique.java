@@ -1,6 +1,9 @@
-package M3;
+package M3.strategy;
 
 import java.util.List;
+
+import M3.clients.CapteurImpl;
+import M3.proxy.Canal;
 
 public class DiffusionAtomique implements AlgoDiffusion{
 
