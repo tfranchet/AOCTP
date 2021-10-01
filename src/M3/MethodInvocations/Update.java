@@ -4,7 +4,6 @@ import java.util.concurrent.Callable;
 
 import M3.clients.ObserverDeCapteur;
 import M3.proxy.Canal;
-import M3.services.CapteurAsync;
 
 public class Update implements Callable<Void>, MethodInvocation {
 
@@ -45,7 +44,7 @@ public class Update implements Callable<Void>, MethodInvocation {
 
 	@Override
 	public Void call() throws Exception {
-		// TODO Auto-generated method stub
+    	this.observer.update(this.subject);
 		return null;
 	}
 

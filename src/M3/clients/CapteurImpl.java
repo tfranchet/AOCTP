@@ -5,11 +5,12 @@ import java.util.List;
 
 
 import M3.proxy.Canal;
+import M3.services.ObserverDeCapteurAsync;
 import M3.strategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 
-    private Integer value;
+    public Integer value;
 
     private AlgoDiffusion strategy;
 
@@ -37,11 +38,12 @@ public class CapteurImpl implements Capteur {
         canaux.remove(toremove);
     }
 
-    public Integer getValue(){
+    public Integer getValue(ObserverDeCapteurAsync o){
         return value;
     }
 
     public void tick(){
+        value++;
         strategy.execute();
     }
 }

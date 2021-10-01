@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import M3.proxy.Canal;
-import M3.services.CapteurAsync;
 
 public class Afficheur implements ObserverDeCapteur{
 	
-	List<Integer> valeurs;
+	public List<Integer> valeurs;
 	
 	public Afficheur(Canal canal) {
 		super();

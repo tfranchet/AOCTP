@@ -3,10 +3,7 @@ package M3.MethodInvocations;
 import java.util.concurrent.Callable;
 
 import M3.clients.Capteur;
-import M3.clients.ObserverDeCapteur;
 import M3.proxy.Canal;
-import M3.services.CapteurAsync;
-import M3.services.ObserverDeCapteurAsync;
 
 public class GetValue implements Callable<Void>, MethodInvocation{
 
