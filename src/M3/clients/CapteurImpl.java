@@ -38,7 +38,7 @@ public class CapteurImpl implements Capteur {
         canaux.remove(toremove);
     }
 
-    public Integer getValue(ObserverDeCapteurAsync o){
+    public Integer getValue(){
         return value;
     }
 
@@ -53,4 +53,5 @@ public class CapteurImpl implements Capteur {
     public List<Canal> getAllCanaux(){
         return canaux;
     }
+
 }
