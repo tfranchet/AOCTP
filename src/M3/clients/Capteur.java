@@ -1,6 +1,7 @@
 package M3.clients;
 
 import M3.services.ObserverDeCapteurAsync;
+import M3.strategy.AlgoDiffusion;
 
 public interface Capteur{
 
@@ -11,4 +12,6 @@ public interface Capteur{
     public Integer getValue();
 
     public void tick();
+
+	public void setStrategy(AlgoDiffusion algo);
 }

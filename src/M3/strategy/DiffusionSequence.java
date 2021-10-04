@@ -4,12 +4,12 @@ import M3.clients.Capteur;
 import M3.clients.CapteurImpl;
 import M3.proxy.Canal;
 
-public class SequenceDiffusion implements AlgoDiffusion {
+public class DiffusionSequence implements AlgoDiffusion {
 
 	private Capteur capteur;
 	
-	public SequenceDiffusion(CapteurImpl capteur) {
-		this.capteur = capteur;
+	public DiffusionSequence() {
+		super();
 	}
 
 	@Override
