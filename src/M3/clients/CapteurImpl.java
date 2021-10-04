@@ -53,5 +53,14 @@ public class CapteurImpl implements Capteur {
     public List<Canal> getAllCanaux(){
         return canaux;
     }
+    
+    public CapteurImpl(){
+        super();
+    }
+    public void setStrategy(AlgoDiffusion algo) {
+    	this.strategy = algo;
+    }
+    
+
 
 }
