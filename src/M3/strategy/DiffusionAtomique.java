@@ -1,8 +1,10 @@
 package M3.strategy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import M3.clients.Capteur;
 import M3.clients.CapteurImpl;
 import M3.proxy.Canal;
 
@@ -10,13 +12,19 @@ public class DiffusionAtomique implements AlgoDiffusion{
 
     private List<Canal> canaux;
 
-    private List<CapteurImpl> capteurs;
+    private List<Capteur> capteurs;
 
     private Future[] futures;
 
-    public void configure(){
+    public DiffusionAtomique(Capteur capteur){
+        this.capteurs = new ArrayList<Capteur>();
+        capteurs.add(capteur);
+        this.canaux = capteur.getAllCanaux();
+    }
 
-        futures= new Future[capteurs.size()];
+    public void configure(){
+        
+        futures= new Future[canaux.size()];
     }
 
     public void execute(){
@@ -24,7 +32,7 @@ public class DiffusionAtomique implements AlgoDiffusion{
         int i = 0;
         boolean canadd = true;
         for (Canal canal : canaux) {
-            for (CapteurImpl capteur : capteurs) {
+            for (Capteur capteur : capteurs) {
                 if (!(futures[i] == null)){
                  futures[i] = canal.update(capteur);
             }
@@ -35,10 +43,10 @@ public class DiffusionAtomique implements AlgoDiffusion{
         }
          i++;
         }
-        for (CapteurImpl capteur : capteurs) {
+        for (Capteur capteur : capteurs) {
             if(canadd) {
                 capteur.updateValue() ;
-            futures = new Future[capteurs.size()];
+            futures = new Future[canaux.size()];
         }
     }
     }

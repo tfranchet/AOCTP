@@ -1,5 +1,6 @@
 package M3.clients;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CapteurImpl implements Capteur {
     private List<Canal> canaux;
 
     public CapteurImpl(AlgoDiffusion algo){
-        super();
+        canaux = new ArrayList<Canal>();
         this.strategy = algo;
     }
 
@@ -55,7 +56,8 @@ public class CapteurImpl implements Capteur {
     }
     
     public CapteurImpl(){
-        super();
+        canaux = new ArrayList<Canal>();
+        value = 0;
     }
     public void setStrategy(AlgoDiffusion algo) {
     	this.strategy = algo;
