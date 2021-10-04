@@ -8,7 +8,7 @@ public interface Capteur{
 
     public void detach(Afficheur o);
 
-    public Integer getValue(ObserverDeCapteurAsync o);
+    public Integer getValue();
 
     public void tick();
 }
