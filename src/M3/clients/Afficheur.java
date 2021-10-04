@@ -11,7 +11,7 @@ public class Afficheur implements ObserverDeCapteur{
 	
 	private List<Integer> valeurs;
 	
-	public Afficheur(Canal canal) {
+	public Afficheur() {
 		super();
 		this.valeurs = new ArrayList<Integer>();
 	}
