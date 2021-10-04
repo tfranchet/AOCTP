@@ -1,13 +1,11 @@
 package M3.proxy;
 
 import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
 
 import M3.MethodInvocations.GetValue;
 import M3.MethodInvocations.Update;
 import M3.clients.Afficheur;
 import M3.clients.Capteur;
-import M3.clients.CapteurImpl;
 import M3.scheduler.Scheduler;
 import M3.services.CapteurAsync;
 import M3.services.ObserverDeCapteurAsync;

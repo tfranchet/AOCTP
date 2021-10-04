@@ -12,22 +12,34 @@ public class DiffusionAtomique implements AlgoDiffusion{
 
     private List<CapteurImpl> capteurs;
 
+    private Future[] futures;
+
     public void configure(){
 
+        futures= new Future[capteurs.size()];
     }
 
     public void execute(){
-        int[] vals= new int[capteurs.size()];
+        //canadd a true entrainera une incrémentation du capteur
         int i = 0;
+        boolean canadd = true;
         for (Canal canal : canaux) {
-            vals[i]= canal.affiche.valeurs.size();
             for (CapteurImpl capteur : capteurs) {
-                if (vals[i]] == capteur.value){
-                Future currentFuture = canal.update(capteur);
+                if (!(futures[i] == null)){
+                 futures[i] = canal.update(capteur);
             }
+            //Si au moins un future n'est pas terminé, l'inrémentation n'aura pas lieu
+                if(futures[i] != null && !futures[i].isDone()){
+                    canadd = false;
+                }
         }
-        i++;
+         i++;
         }
-        
+        for (CapteurImpl capteur : capteurs) {
+            if(canadd) {
+                capteur.value ++;
+            futures = new Future[capteurs.size()];
+        }
+    }
     }
 }

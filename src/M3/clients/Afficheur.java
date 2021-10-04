@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import M3.proxy.Canal;
+import M3.services.CapteurAsync;
 
 public class Afficheur implements ObserverDeCapteur{
 	
@@ -16,7 +17,7 @@ public class Afficheur implements ObserverDeCapteur{
 	}
 
 	@Override
-	public void update(Canal canal) {
+	public void update(CapteurAsync canal) {
 		try {
 			this.valeurs.add((Integer) (canal.getValue().get()));
 		} catch (InterruptedException e) {

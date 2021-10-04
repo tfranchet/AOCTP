@@ -18,7 +18,7 @@ public class GetValue implements Callable<Void>, MethodInvocation{
 
 	@Override
 	public Void call() throws Exception {
-		this.observer.getValue();
+		this.observer.getValue(subject);
 		return null;
 	}
 	
@@ -30,7 +30,7 @@ public class GetValue implements Callable<Void>, MethodInvocation{
 
 	@Override
 	public void callMI() {
-		this.observer.getValue();		
+		this.observer.getValue(subject);		
 	}
 
 	@Override
