@@ -10,7 +10,7 @@ import M3.strategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {
 
-    public Integer value;
+    private Integer value;
 
     private AlgoDiffusion strategy;
 
@@ -42,7 +42,15 @@ public class CapteurImpl implements Capteur {
         return value;
     }
 
+    public void updateValue(){
+        value++;
+    }
+
     public void tick(){
         strategy.execute();
+    }
+
+    public List<Canal> getAllCanaux(){
+        return canaux;
     }
 }

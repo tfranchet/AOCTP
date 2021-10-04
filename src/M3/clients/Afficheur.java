@@ -9,7 +9,7 @@ import M3.services.CapteurAsync;
 
 public class Afficheur implements ObserverDeCapteur{
 	
-	public List<Integer> valeurs;
+	private List<Integer> valeurs;
 	
 	public Afficheur(Canal canal) {
 		super();
@@ -21,12 +21,14 @@ public class Afficheur implements ObserverDeCapteur{
 		try {
 			this.valeurs.add((Integer) (canal.getValue().get()));
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public List<Integer> getValeurs(){
+		return valeurs;
 	}
 
 }

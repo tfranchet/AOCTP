@@ -37,7 +37,7 @@ public class DiffusionAtomique implements AlgoDiffusion{
         }
         for (CapteurImpl capteur : capteurs) {
             if(canadd) {
-                capteur.value ++;
+                capteur.updateValue() ;
             futures = new Future[capteurs.size()];
         }
     }
