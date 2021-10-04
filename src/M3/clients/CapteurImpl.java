@@ -18,13 +18,13 @@ public class CapteurImpl implements Capteur {
     private List<Canal> canaux;
 
     public CapteurImpl(AlgoDiffusion algo){
-        canaux = new ArrayList<Canal>();
+        this.canaux = new ArrayList<Canal>();
         this.strategy = algo;
     }
 
     public void attach(Afficheur o){
         Canal newcanal = new Canal(this, o);
-        canaux.add(newcanal);
+        this.canaux.add(newcanal);
     }
 
     public void detach(Afficheur o){
