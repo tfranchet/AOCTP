@@ -18,4 +18,12 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
 # AOCTP
 
-**TP à rendre mi-janvier**
+**TP à rendre mi-janvier**  
+
+## À rendre
+
+- diagramme de classes
+- diagrammes de séquences (1 par stratégie)
+- explication des tests unitaires
+- code
+- exécutable
