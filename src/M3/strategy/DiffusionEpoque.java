@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import M3.clients.Capteur;
 import M3.clients.CapteurImpl;
 import M3.proxy.Canal;
 
@@ -11,18 +12,19 @@ public class DiffusionEpoque implements AlgoDiffusion{
 
     private List<Canal> canaux;
 
-    private List<CapteurImpl> capteurs;
+    private List<Capteur> capteurs;
 
     private Future[] futures;
 
-    public DiffusionEpoque(){
-        canaux = new ArrayList<>();
-        capteurs = new ArrayList<>();
-        futures = new Future[capteurs.size()];
+    public DiffusionEpoque(Capteur capteur){
+        this.capteurs = new ArrayList<Capteur>();
+        capteurs.add(capteur);
+        this.canaux = capteur.getAllCanaux();
     }
 
     @Override
     public void configure() {
+        futures = new Future[canaux.size()];
     }
 
     /**
@@ -30,14 +32,23 @@ public class DiffusionEpoque implements AlgoDiffusion{
      */
     @Override
     public void execute() {
-        for (Canal canal : canaux) {
-            for (CapteurImpl capt : capteurs) {
-                canal.update(capt);
-            }
-        }
-        for (CapteurImpl capt : capteurs) {
-                capt.updateValue();
-                futures = new Future[capteurs.size()];
-        }
+                //canadd a true entrainera une incrémentation du capteur
+                int i = 0;
+                for (Canal canal : canaux) {
+                    for (Capteur capteur : capteurs) {
+                        if (futures[i] == null){
+                            futures[i] = canal.update(capteur);
+                    }
+                    //Si au moins un future n'est pas terminé, l'inrémentation n'aura pas lieu
+                        if(futures[i] != null && futures[i].isDone()){
+                            futures[i] = null;
+                        }
+                }
+                 i++;
+                }
+                for (Capteur capteur : capteurs) {
+                        capteur.updateValue() ;
+                }
+            
     }
 }
