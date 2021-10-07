@@ -16,6 +16,8 @@ public class DiffusionSequentielle implements AlgoDiffusion{
 
     private Future[] futures;
 
+    private Integer savedValue;
+
     public DiffusionSequentielle(Capteur capteur){
         this.capteurs = new ArrayList<Capteur>();
         capteurs.add(capteur);
@@ -34,12 +36,14 @@ public class DiffusionSequentielle implements AlgoDiffusion{
         for (Canal canal : canaux) {
             for (Capteur capteur : capteurs) {
                 if (futures[i] == null){
-                    lock = true;
                     futures[i] = canal.update(capteur);
             }
             //Si au moins un future n'est pas terminé, l'inrémentation n'aura pas lieu
                 if(futures[i] != null && !futures[i].isDone()){
                     canadd = false;
+                }
+                if(futures[i] != null && futures[i].isDone()){
+                    lock = true;
                 }
         }
          i++;
