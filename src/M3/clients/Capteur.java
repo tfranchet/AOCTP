@@ -3,12 +3,12 @@ package M3.clients;
 import java.util.List;
 
 import M3.proxy.Canal;
-import M3.services.ObserverDeCapteurAsync;
+import M3.scheduler.Scheduler;
 import M3.strategy.AlgoDiffusion;
 
 public interface Capteur{
 
-    public void attach(Afficheur o);
+    public void attach(Afficheur o, Scheduler schedule);
 
     public void detach(Afficheur o);
 

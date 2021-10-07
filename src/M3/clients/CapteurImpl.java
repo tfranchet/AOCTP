@@ -6,6 +6,7 @@ import java.util.List;
 
 
 import M3.proxy.Canal;
+import M3.scheduler.Scheduler;
 import M3.services.ObserverDeCapteurAsync;
 import M3.strategy.AlgoDiffusion;
 
@@ -22,8 +23,8 @@ public class CapteurImpl implements Capteur {
         this.strategy = algo;
     }
 
-    public void attach(Afficheur o){
-        Canal newcanal = new Canal(this, o);
+    public void attach(Afficheur o, Scheduler schedule){
+        Canal newcanal = new Canal(this, o, schedule);
         this.canaux.add(newcanal);
     }
 

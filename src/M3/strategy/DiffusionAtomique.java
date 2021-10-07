@@ -33,8 +33,8 @@ public class DiffusionAtomique implements AlgoDiffusion{
         boolean canadd = true;
         for (Canal canal : canaux) {
             for (Capteur capteur : capteurs) {
-                if (!(futures[i] == null)){
-                 futures[i] = canal.update(capteur);
+                if (futures[i] == null){
+                    futures[i] = canal.update(capteur);
             }
             //Si au moins un future n'est pas terminé, l'inrémentation n'aura pas lieu
                 if(futures[i] != null && !futures[i].isDone()){

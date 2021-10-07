@@ -22,14 +22,16 @@ public class Canal implements ObserverDeCapteurAsync, CapteurAsync{
 
     private GetValue getValue;
 
-    public Canal(Capteur cimpl, Afficheur afficheur){
+    public Canal(Capteur cimpl, Afficheur afficheur, Scheduler schedule){
         this.cimpl = cimpl;
         this.affiche = afficheur;
+        this.schedule = schedule;
     }
 
     public Future update(Capteur c){
         try {
-            update = new Update(affiche, this);            
+            update = new Update(affiche, this);
+            affiche.update(this);    
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

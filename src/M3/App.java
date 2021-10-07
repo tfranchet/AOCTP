@@ -23,9 +23,11 @@ public class App {
 		}
 		//Connexion du capteur aux afficheurs
 		for (Afficheur afficheur : afficheurs) {
-			capteur.attach(afficheur);
+			capteur.attach(afficheur, scheduler);
 		}
-		/*AlgoDiffusion algo = new DiffusionAtomique();
-		capteur.setStrategy(algo);*/
+		AlgoDiffusion algo = new DiffusionAtomique(capteur);
+		algo.configure();
+		capteur.setStrategy(algo);
+		capteur.tick();
     }
 }
