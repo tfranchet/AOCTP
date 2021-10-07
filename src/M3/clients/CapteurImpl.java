@@ -7,7 +7,6 @@ import java.util.List;
 
 import M3.proxy.Canal;
 import M3.scheduler.Scheduler;
-import M3.services.ObserverDeCapteurAsync;
 import M3.strategy.AlgoDiffusion;
 
 public class CapteurImpl implements Capteur {

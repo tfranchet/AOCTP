@@ -30,8 +30,7 @@ public class Canal implements ObserverDeCapteurAsync, CapteurAsync{
 
     public Future update(Capteur c){
         try {
-            update = new Update(affiche, this);
-            affiche.update(this);    
+            update = new Update(affiche, this); 
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -42,6 +41,7 @@ public class Canal implements ObserverDeCapteurAsync, CapteurAsync{
     public Future getValue(){
         try {
             getValue = new GetValue(cimpl, this);
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -49,11 +49,13 @@ public class Canal implements ObserverDeCapteurAsync, CapteurAsync{
         }
     	return schedule.enqueue(getValue);
     }
+
+    @Override
+    public Future update(CapteurAsync subject) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 
-	@Override
-	public Future update(CapteurAsync subject) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

@@ -5,10 +5,11 @@ import java.util.concurrent.Callable;
 import M3.clients.Capteur;
 import M3.proxy.Canal;
 
-public class GetValue implements Callable<Void>, MethodInvocation{
+public class GetValue implements Callable<Integer>, MethodInvocation{
 
 	private Canal subject;
 	private Capteur observer;
+	public Integer value;
 	
 	public GetValue(Capteur observer,Canal subject) {
 		super();
@@ -17,9 +18,10 @@ public class GetValue implements Callable<Void>, MethodInvocation{
 	}
 
 	@Override
-	public Void call() throws Exception {
-		this.observer.getValue();
-		return null;
+	public Integer call() throws Exception {
+		value = this.observer.getValue();
+		System.out.println(value);
+		return value;
 	}
 	
 	@Override
