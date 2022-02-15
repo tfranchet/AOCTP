@@ -1,29 +1,9 @@
-## Getting Started
+## Tests
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Pour nos tests, nous avons fait le choix de faire un test par strategy
 
-## Folder Structure
+Le test consiste en un scheduler applicant des update des valeurs de capteur a interval régulier
 
-The workspace contains two folders by default, where:
+Puis, en fonction de la strategy adopté, on vérifie les valeurs de l'afficheurs 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-# AOCTP
-
-**TP à rendre mi-janvier**  
-
-## À rendre
-
-- diagramme de classes
-- diagrammes de séquences (1 par stratégie)
-- explication des tests unitaires
-- code
-- exécutable
